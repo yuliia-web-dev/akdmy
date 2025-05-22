@@ -5,22 +5,22 @@ document.addEventListener("click", documentActions);
 function documentActions(e) {
 	const targetElement = e.target;
 
+	// Toggle menu on burger icon click
 	if (targetElement.closest('.icon-menu')) {
 		document.body.classList.toggle('menu-open');
+		targetElement.closest('.icon-menu').classList.toggle('active');
 	}
 
-	// Перевірка на клік по посиланню всередині меню
+	// Close menu and reset icon on link click inside the menu
 	if (targetElement.closest('.menu') && targetElement.tagName === 'A') {
 		document.body.classList.remove('menu-open');
+
+		// Remove 'active' class from all burger icons
+		const icons = document.querySelectorAll('.icon-menu');
+		icons.forEach(icon => icon.classList.remove('active'));
 	}
 }
 
-const icons = document.querySelectorAll('.icon-menu');
-icons.forEach(icon => {
-	icon.addEventListener('click', (event) => {
-		icon.classList.toggle("active");
-	});
-});
 
 
 window.addEventListener('scroll', () => {

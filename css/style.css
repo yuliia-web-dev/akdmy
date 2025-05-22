@@ -612,6 +612,11 @@ body.menu-open {
 }
 @media (max-width: 28.125em) {
   .hero {
+    background-position: 77% 0%;
+  }
+}
+@media (max-width: 21.5625em) {
+  .hero {
     background-position: 75% 0%;
   }
 }

@@ -313,6 +313,9 @@ body {
 		background-position: 80% 0%;
 	}
 	@media (max-width: toEm(450)) {
+		background-position: 77% 0%;
+	}
+	@media (max-width: toEm(345)) {
 		background-position: 75% 0%;
 	}
 	&__container {
