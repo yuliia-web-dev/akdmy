@@ -528,14 +528,46 @@ body.menu-open {
       flex-shrink: 0;
   -webkit-box-shadow: 0 0 10px rgba(215, 230, 51, 0.5);
           box-shadow: 0 0 10px rgba(215, 230, 51, 0.5);
-  -webkit-transition: all 0.3s;
-  transition: all 0.3s;
+  -webkit-transition: -webkit-box-shadow 0.3s;
+  transition: -webkit-box-shadow 0.3s;
+  transition: box-shadow 0.3s;
+  transition: box-shadow 0.3s, -webkit-box-shadow 0.3s;
 }
 @media (any-hover: hover) {
   .button:hover {
     -webkit-box-shadow: 0 0 10px rgba(215, 230, 51, 0.8), 0 0 30px rgba(215, 230, 51, 0.6), 0 0 50px rgba(215, 230, 51, 0.4);
             box-shadow: 0 0 10px rgba(215, 230, 51, 0.8), 0 0 30px rgba(215, 230, 51, 0.6), 0 0 50px rgba(215, 230, 51, 0.4);
   }
+}
+
+.hero__title,
+.hero__text {
+  opacity: 0;
+  -webkit-transform: translateY(-20px);
+      -ms-transform: translateY(-20px);
+          transform: translateY(-20px);
+  -webkit-transition: opacity 1s ease, -webkit-transform 1s ease;
+  transition: opacity 1s ease, -webkit-transform 1s ease;
+  transition: opacity 1s ease, transform 1s ease;
+  transition: opacity 1s ease, transform 1s ease, -webkit-transform 1s ease;
+  will-change: opacity, transform;
+}
+.hero__title.visible,
+.hero__text.visible {
+  opacity: 1;
+  -webkit-transform: translateY(0);
+      -ms-transform: translateY(0);
+          transform: translateY(0);
+}
+
+.hero__title {
+  -webkit-transition-delay: 0s;
+          transition-delay: 0s;
+}
+
+.hero__text {
+  -webkit-transition-delay: 0.4s;
+          transition-delay: 0.4s;
 }
 
 .hero {
@@ -727,43 +759,6 @@ body.menu-open {
   .hero__button {
     width: 100%;
   }
-}
-
-.hero__title,
-.hero__text,
-.hero__button {
-  opacity: 0;
-  -webkit-transform: translateY(-20px);
-      -ms-transform: translateY(-20px);
-          transform: translateY(-20px);
-  -webkit-transition: opacity 1s ease, -webkit-transform 1s ease;
-  transition: opacity 1s ease, -webkit-transform 1s ease;
-  transition: opacity 1s ease, transform 1s ease;
-  transition: opacity 1s ease, transform 1s ease, -webkit-transform 1s ease;
-  will-change: opacity, transform;
-}
-.hero__title.visible,
-.hero__text.visible,
-.hero__button.visible {
-  opacity: 1;
-  -webkit-transform: translateY(0);
-      -ms-transform: translateY(0);
-          transform: translateY(0);
-}
-
-.hero__title {
-  -webkit-transition-delay: 0s;
-          transition-delay: 0s;
-}
-
-.hero__text {
-  -webkit-transition-delay: 0.4s;
-          transition-delay: 0.4s;
-}
-
-.hero__button {
-  -webkit-transition-delay: 0.8s;
-          transition-delay: 0.8s;
 }
 
 .about {

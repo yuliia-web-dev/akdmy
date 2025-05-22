@@ -255,7 +255,7 @@ body {
 	padding: toRem(10) toRem(25);
 	flex-shrink: 0;
 	box-shadow: 0 0 10px rgba(215, 230, 51, 0.5);
-	transition: all 0.3s;
+	transition: box-shadow 0.3s;
 
 	@media (any-hover: hover) {
 		&:hover {
@@ -268,6 +268,26 @@ body {
 }
 
 //===============================HERO===================
+.hero__title,
+.hero__text {
+	opacity: 0;
+	transform: translateY(-20px);
+	transition:
+		opacity 1s ease,
+		transform 1s ease;
+	will-change: opacity, transform;
+	&.visible {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+.hero__title {
+	transition-delay: 0s;
+}
+.hero__text {
+	transition-delay: 0.4s;
+}
+
 
 .hero {
 	background-image: url(../img/hero-bg.webp);
@@ -341,33 +361,11 @@ body {
 	}
 	&__button {
 		width: fit-content;
+
 		@media (max-width: toEm(480)) {
 			width: 100%;
 		}
 	}
-}
-.hero__title,
-.hero__text,
-.hero__button {
-	opacity: 0;
-	transform: translateY(-20px);
-	transition:
-		opacity 1s ease,
-		transform 1s ease;
-	will-change: opacity, transform;
-	&.visible {
-		opacity: 1;
-		transform: translateY(0);
-	}
-}
-.hero__title {
-	transition-delay: 0s;
-}
-.hero__text {
-	transition-delay: 0.4s;
-}
-.hero__button {
-	transition-delay: 0.8s;
 }
 
 //=======================ABOUT===============
