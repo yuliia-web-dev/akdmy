@@ -857,15 +857,25 @@ body.menu-open {
   inset: 0;
   z-index: -1;
   padding: 0.25rem;
-  background: -webkit-gradient(linear, left top, left bottom, from(rgb(255, 225, 0)), to(rgb(253, 100, 100)));
-  background: linear-gradient(to bottom, rgb(255, 225, 0), rgb(253, 100, 100));
-  -webkit-mask-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #fff)), -webkit-gradient(linear, left top, left bottom, color-stop(0, #fff));
-  -webkit-mask-image: linear-gradient(#fff 0 0), linear-gradient(#fff 0 0);
-  -webkit-mask-clip: content-box, border-box;
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
   border-radius: 1.25rem;
   pointer-events: none;
+}
+@supports (-webkit-mask-image: linear-gradient(white, white)) {
+  .item-counter::before {
+    padding: 0.25rem;
+    background: -webkit-gradient(linear, left top, left bottom, from(rgb(255, 225, 0)), to(rgb(253, 100, 100)));
+    background: linear-gradient(to bottom, rgb(255, 225, 0), rgb(253, 100, 100));
+    -webkit-mask-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #fff)), -webkit-gradient(linear, left top, left bottom, color-stop(0, #fff));
+    -webkit-mask-image: linear-gradient(#fff 0 0), linear-gradient(#fff 0 0);
+    -webkit-mask-clip: content-box, border-box;
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+  }
+}
+@supports not (-webkit-mask-image: linear-gradient(white, white)) {
+  .item-counter::before {
+    border: 4px solid rgb(255, 225, 0);
+  }
 }
 .item-counter__number {
   background: linear-gradient(86deg, #bef4f9 3.13%, #9bdbf0 10.01%, #9bdbf0 104.02%);
