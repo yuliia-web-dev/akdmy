@@ -364,6 +364,7 @@ body {
 	}
 	&__button {
 		width: fit-content;
+		font-size: 24px;
 
 		@media (max-width: toEm(480)) {
 			width: 100%;

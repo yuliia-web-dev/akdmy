@@ -759,6 +759,7 @@ body.menu-open {
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
+  font-size: 24px;
 }
 @media (max-width: 30em) {
   .hero__button {
