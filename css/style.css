@@ -682,6 +682,7 @@ body.menu-open {
 .hero__title {
   font-weight: 500;
   line-height: 1.2;
+  text-shadow: 1px 1px 2px rgb(0, 0, 0), 2px 2px 6px rgba(0, 0, 0, 0.8), 3px 3px 10px rgba(0, 0, 0, 0.6);
 }
 @media (min-width: 89.375em) {
   .hero__title {
@@ -689,20 +690,20 @@ body.menu-open {
   }
 }
 @media (min-width: 20em) and (max-width: 89.375em) {
-  @supports (font-size: clamp( 2.5rem , 2.2297297297rem  +  1.3513513514vw , 3.4375rem )) {
+  @supports (font-size: clamp( 2.625rem , 2.3907657658rem  +  1.1711711712vw , 3.4375rem )) {
     .hero__title {
-      font-size: clamp( 2.5rem , 2.2297297297rem  +  1.3513513514vw , 3.4375rem );
+      font-size: clamp( 2.625rem , 2.3907657658rem  +  1.1711711712vw , 3.4375rem );
     }
   }
-  @supports not (font-size: clamp( 2.5rem , 2.2297297297rem  +  1.3513513514vw , 3.4375rem )) {
+  @supports not (font-size: clamp( 2.625rem , 2.3907657658rem  +  1.1711711712vw , 3.4375rem )) {
     .hero__title {
-      font-size: calc(2.5rem + 0.9375 * (100vw - 20rem) / 69.375);
+      font-size: calc(2.625rem + 0.8125 * (100vw - 20rem) / 69.375);
     }
   }
 }
 @media (max-width: 20em) {
   .hero__title {
-    font-size: 2.5rem;
+    font-size: 2.625rem;
   }
 }
 .hero__title span {
@@ -711,6 +712,7 @@ body.menu-open {
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  text-shadow: none;
 }
 @media (min-width: 89.375em) {
   .hero__title:not(:last-child) {
