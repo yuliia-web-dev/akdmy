@@ -330,7 +330,7 @@ body {
 	&__content {
 		@include adaptiveValue("padding-left", 56, 0);
 		padding-top: toRem(200);
-		padding-bottom: toRem(48);
+		padding-bottom: toRem(40);
 		z-index: 5;
 		max-width: toRem(475);
 		@media (max-width: toEm(767.98)) {
@@ -343,7 +343,7 @@ body {
 		}
 	}
 	&__title {
-		@include adaptiveValue("font-size", 55, 45);
+		@include adaptiveValue("font-size", 55, 40);
 		font-weight: 500;
 		line-height: 1.2;
 
@@ -356,7 +356,7 @@ body {
 			-webkit-text-fill-color: transparent;
 		}
 		&:not(:last-child) {
-			@include adaptiveValue("margin-bottom", 30, 20);
+			@include adaptiveValue("margin-bottom", 30, 15);
 		}
 	}
 	&__text {

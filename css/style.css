@@ -634,7 +634,7 @@ body.menu-open {
 }
 .hero__content {
   padding-top: 12.5rem;
-  padding-bottom: 3rem;
+  padding-bottom: 2.5rem;
   z-index: 5;
   max-width: 29.6875rem;
 }
@@ -689,20 +689,20 @@ body.menu-open {
   }
 }
 @media (min-width: 20em) and (max-width: 89.375em) {
-  @supports (font-size: clamp( 2.8125rem , 2.6323198198rem  +  0.9009009009vw , 3.4375rem )) {
+  @supports (font-size: clamp( 2.5rem , 2.2297297297rem  +  1.3513513514vw , 3.4375rem )) {
     .hero__title {
-      font-size: clamp( 2.8125rem , 2.6323198198rem  +  0.9009009009vw , 3.4375rem );
+      font-size: clamp( 2.5rem , 2.2297297297rem  +  1.3513513514vw , 3.4375rem );
     }
   }
-  @supports not (font-size: clamp( 2.8125rem , 2.6323198198rem  +  0.9009009009vw , 3.4375rem )) {
+  @supports not (font-size: clamp( 2.5rem , 2.2297297297rem  +  1.3513513514vw , 3.4375rem )) {
     .hero__title {
-      font-size: calc(2.8125rem + 0.625 * (100vw - 20rem) / 69.375);
+      font-size: calc(2.5rem + 0.9375 * (100vw - 20rem) / 69.375);
     }
   }
 }
 @media (max-width: 20em) {
   .hero__title {
-    font-size: 2.8125rem;
+    font-size: 2.5rem;
   }
 }
 .hero__title span {
@@ -718,20 +718,20 @@ body.menu-open {
   }
 }
 @media (min-width: 20em) and (max-width: 89.375em) {
-  @supports (margin-bottom: clamp( 1.25rem , 1.0698198198rem  +  0.9009009009vw , 1.875rem )) {
+  @supports (margin-bottom: clamp( 0.9375rem , 0.6672297297rem  +  1.3513513514vw , 1.875rem )) {
     .hero__title:not(:last-child) {
-      margin-bottom: clamp( 1.25rem , 1.0698198198rem  +  0.9009009009vw , 1.875rem );
+      margin-bottom: clamp( 0.9375rem , 0.6672297297rem  +  1.3513513514vw , 1.875rem );
     }
   }
-  @supports not (margin-bottom: clamp( 1.25rem , 1.0698198198rem  +  0.9009009009vw , 1.875rem )) {
+  @supports not (margin-bottom: clamp( 0.9375rem , 0.6672297297rem  +  1.3513513514vw , 1.875rem )) {
     .hero__title:not(:last-child) {
-      margin-bottom: calc(1.25rem + 0.625 * (100vw - 20rem) / 69.375);
+      margin-bottom: calc(0.9375rem + 0.9375 * (100vw - 20rem) / 69.375);
     }
   }
 }
 @media (max-width: 20em) {
   .hero__title:not(:last-child) {
-    margin-bottom: 1.25rem;
+    margin-bottom: 0.9375rem;
   }
 }
 .hero__text {
