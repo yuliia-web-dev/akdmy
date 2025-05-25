@@ -573,6 +573,7 @@ body.menu-open {
 .hero {
   position: relative;
   height: 90svh;
+  min-height: 600px;
   width: 100%;
   overflow: hidden;
 }
@@ -664,8 +665,8 @@ body.menu-open {
 }
 @media (max-width: 20em) {
   .hero__background {
-    -o-object-position: 78% 0;
-       object-position: 78% 0;
+    -o-object-position: 79% 0;
+       object-position: 79% 0;
   }
 }
 .hero__content {

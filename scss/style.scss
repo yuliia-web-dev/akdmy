@@ -291,6 +291,8 @@ body {
 .hero {
 	position: relative;
 	height: 90svh;
+	min-height: 600px;
+
 	width: 100%;
 	overflow: hidden;
 
@@ -339,7 +341,7 @@ body {
 			object-position: 79% 0;
 		}
 		@media (max-width: toEm(320)) {
-			object-position: 78% 0;
+			object-position: 79% 0;
 		}
 	}
 	&__container {
