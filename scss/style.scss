@@ -288,35 +288,42 @@ body {
 	transition-delay: 0.4s;
 }
 
-
 .hero {
-	background-image: url(../img/hero-bg.webp);
-	background-size: cover;
-	background-repeat: no-repeat;
-	filter: blur(0.5px);
-	background-color: rgba(222, 238, 249, 0.3);
-	background-position: 40% 0%;
 	position: relative;
-	min-height: toRem(562);
+	position: relative;
+	height: 90svh;
+	width: 100%;
+	overflow: hidden;
+
 	@media (max-width: toEm(767.98)) {
-		display: flex;
 		flex-direction: column;
 		justify-content: flex-end;
+		display: flex;
 	}
-	@media (max-width: toEm(990)) {
-		background-position: 55% 0%;
-	}
-	@media (max-width: toEm(767.98)) {
-		background-position: 85% 0%;
-	}
-	@media (max-width: toEm(600)) {
-		background-position: 80% 0%;
-	}
-	@media (max-width: toEm(450)) {
-		background-position: 77% 0%;
-	}
-	@media (max-width: toEm(345)) {
-		background-position: 75% 0%;
+	&__background {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		object-position: 100% 10%;
+		z-index: -1;
+		@media (max-width: toEm(1055)) {
+			object-position: 50% 0;
+		}
+		@media (max-width: toEm(900)) {
+			object-position: 60% 0;
+		}
+		@media (max-width: toEm(767.98)) {
+			object-position: 80% 0;
+		}
+		@media (max-width: toEm(767.98)) {
+			object-position: 80% 0;
+		}
+		@media (max-width: toEm(450)) {
+			object-position: 75% 0;
+		}
 	}
 	&__container {
 		padding-top: toRem(180);
@@ -333,16 +340,17 @@ body {
 			align-items: center;
 			justify-content: center;
 			text-align: center;
-			background-color: #090827c8;
-			padding: toRem(10);
-			border-radius: toRem(20);
+
 		}
 	}
 	&__title {
-		@include adaptiveValue("font-size", 55, 30);
+		@include adaptiveValue("font-size", 55, 45);
 		font-weight: 500;
 		line-height: 1.2;
 
+		@media (max-width: toEm(767.98)) {
+
+		}
 		span {
 			background: linear-gradient(270deg, #bef4f9 0%, #9bdbf0 6%, #68b6e4 76.5%, #327bb5 97.5%);
 			background-clip: text;
@@ -394,7 +402,7 @@ body {
 		display: grid;
 		grid-template-columns: repeat(3, 1fr);
 		gap: toRem(20);
-		@media(max-width:toEm(800)){
+		@media (max-width: toEm(800)) {
 			grid-template-columns: 1fr;
 		}
 		&:not(:last-child) {
@@ -456,9 +464,8 @@ body {
 		@supports (-webkit-mask-image: linear-gradient(white, white)) {
 			padding: toRem(4);
 			background: linear-gradient(to bottom, rgba(255, 225, 0, 1), rgba(253, 100, 100, 1));
-			-webkit-mask-image:
-			linear-gradient(to bottom, #fff 0%, #fff 100%),
-			linear-gradient(to bottom, #fff 0%, #fff 100%);
+			-webkit-mask-image: linear-gradient(to bottom, #fff 0%, #fff 100%),
+				linear-gradient(to bottom, #fff 0%, #fff 100%);
 			-webkit-mask-clip: content-box, border-box;
 			-webkit-mask-composite: xor;
 			mask-composite: exclude;
@@ -468,7 +475,7 @@ body {
 			border: 4px solid rgba(255, 225, 0, 1);
 		}
 	}
-	
+
 	// .item-counter__number
 
 	&__number {
@@ -545,7 +552,6 @@ body {
 		font-weight: 600;
 		line-height: 1.2;
 		color: #fff;
-		text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.62);
 		&:not(:last-child) {
 			margin-bottom: toRem(30);
 		}
@@ -751,15 +757,13 @@ body {
 	transition-delay: 0.8s;
 }
 
-.features__item{
+.features__item {
 	transform: translateY(30px);
 	transform: scale(0);
-	transition:
-		transform 1s ease;
+	transition: transform 1s ease;
 	&.visible {
 		transform: translateY(0);
 		transform: scale(1);
-
 	}
 }
 
@@ -774,4 +778,3 @@ body {
 .features__item:nth-child(3) {
 	transition-delay: 0.8s;
 }
-

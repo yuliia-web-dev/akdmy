@@ -571,21 +571,14 @@ body.menu-open {
 }
 
 .hero {
-  background-image: url(../img/hero-bg.webp);
-  background-size: cover;
-  background-repeat: no-repeat;
-  -webkit-filter: blur(0.5px);
-          filter: blur(0.5px);
-  background-color: rgba(222, 238, 249, 0.3);
-  background-position: 40% 0%;
   position: relative;
-  min-height: 35.125rem;
+  position: relative;
+  height: 90svh;
+  width: 100%;
+  overflow: hidden;
 }
 @media (max-width: 47.99875em) {
   .hero {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
@@ -593,31 +586,51 @@ body.menu-open {
     -webkit-box-pack: end;
         -ms-flex-pack: end;
             justify-content: flex-end;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
   }
 }
-@media (max-width: 61.875em) {
-  .hero {
-    background-position: 55% 0%;
+.hero__background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: 100% 10%;
+     object-position: 100% 10%;
+  z-index: -1;
+}
+@media (max-width: 65.9375em) {
+  .hero__background {
+    -o-object-position: 50% 0;
+       object-position: 50% 0;
+  }
+}
+@media (max-width: 56.25em) {
+  .hero__background {
+    -o-object-position: 60% 0;
+       object-position: 60% 0;
   }
 }
 @media (max-width: 47.99875em) {
-  .hero {
-    background-position: 85% 0%;
+  .hero__background {
+    -o-object-position: 80% 0;
+       object-position: 80% 0;
   }
 }
-@media (max-width: 37.5em) {
-  .hero {
-    background-position: 80% 0%;
+@media (max-width: 47.99875em) {
+  .hero__background {
+    -o-object-position: 80% 0;
+       object-position: 80% 0;
   }
 }
 @media (max-width: 28.125em) {
-  .hero {
-    background-position: 77% 0%;
-  }
-}
-@media (max-width: 21.5625em) {
-  .hero {
-    background-position: 75% 0%;
+  .hero__background {
+    -o-object-position: 75% 0;
+       object-position: 75% 0;
   }
 }
 .hero__container {
@@ -667,9 +680,6 @@ body.menu-open {
         -ms-flex-pack: center;
             justify-content: center;
     text-align: center;
-    background-color: rgba(9, 8, 39, 0.7843137255);
-    padding: 0.625rem;
-    border-radius: 1.25rem;
   }
 }
 .hero__title {
@@ -682,20 +692,20 @@ body.menu-open {
   }
 }
 @media (min-width: 20em) and (max-width: 89.375em) {
-  @supports (font-size: clamp( 1.875rem , 1.4245495495rem  +  2.2522522523vw , 3.4375rem )) {
+  @supports (font-size: clamp( 2.8125rem , 2.6323198198rem  +  0.9009009009vw , 3.4375rem )) {
     .hero__title {
-      font-size: clamp( 1.875rem , 1.4245495495rem  +  2.2522522523vw , 3.4375rem );
+      font-size: clamp( 2.8125rem , 2.6323198198rem  +  0.9009009009vw , 3.4375rem );
     }
   }
-  @supports not (font-size: clamp( 1.875rem , 1.4245495495rem  +  2.2522522523vw , 3.4375rem )) {
+  @supports not (font-size: clamp( 2.8125rem , 2.6323198198rem  +  0.9009009009vw , 3.4375rem )) {
     .hero__title {
-      font-size: calc(1.875rem + 1.5625 * (100vw - 20rem) / 69.375);
+      font-size: calc(2.8125rem + 0.625 * (100vw - 20rem) / 69.375);
     }
   }
 }
 @media (max-width: 20em) {
   .hero__title {
-    font-size: 1.875rem;
+    font-size: 2.8125rem;
   }
 }
 .hero__title span {
@@ -982,7 +992,6 @@ body.menu-open {
   font-weight: 600;
   line-height: 1.2;
   color: #fff;
-  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.62);
 }
 @media (min-width: 89.375em) {
   .features__title {
