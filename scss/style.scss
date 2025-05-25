@@ -315,12 +315,21 @@ body {
 			object-position: 60% 0;
 		}
 		@media (max-width: toEm(767.98)) {
-			object-position: 80% 0;
+			object-position: 88% 0;
 		}
-		@media (max-width: toEm(767.98)) {
+		@media (max-width: toEm(630)) {
+			object-position: 83% 0;
+		}
+		@media (max-width: toEm(530)) {
 			object-position: 80% 0;
 		}
 		@media (max-width: toEm(450)) {
+			object-position: 78% 0;
+		}
+		@media (max-width: toEm(375)) {
+			object-position: 77% 0;
+		}
+		@media (max-width: toEm(325)) {
 			object-position: 75% 0;
 		}
 	}

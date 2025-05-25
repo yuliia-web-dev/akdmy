@@ -616,17 +616,35 @@ body.menu-open {
 }
 @media (max-width: 47.99875em) {
   .hero__background {
-    -o-object-position: 80% 0;
-       object-position: 80% 0;
+    -o-object-position: 88% 0;
+       object-position: 88% 0;
   }
 }
-@media (max-width: 47.99875em) {
+@media (max-width: 39.375em) {
+  .hero__background {
+    -o-object-position: 83% 0;
+       object-position: 83% 0;
+  }
+}
+@media (max-width: 33.125em) {
   .hero__background {
     -o-object-position: 80% 0;
        object-position: 80% 0;
   }
 }
 @media (max-width: 28.125em) {
+  .hero__background {
+    -o-object-position: 78% 0;
+       object-position: 78% 0;
+  }
+}
+@media (max-width: 23.4375em) {
+  .hero__background {
+    -o-object-position: 77% 0;
+       object-position: 77% 0;
+  }
+}
+@media (max-width: 20.3125em) {
   .hero__background {
     -o-object-position: 75% 0;
        object-position: 75% 0;
