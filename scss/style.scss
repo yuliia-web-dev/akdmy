@@ -321,23 +321,32 @@ body {
 			object-position: 83% 0;
 		}
 		@media (max-width: toEm(530)) {
+			object-position: 82% 0;
+		}
+		@media (max-width: toEm(480)) {
+			object-position: 79% 0;
+		}
+		@media (max-width: toEm(430)) {
+			object-position: 79% 0;
+		}
+		@media (max-width: toEm(414)) {
+			object-position: 79% 0;
+		}
+		@media (max-width: toEm(390)) {
 			object-position: 80% 0;
 		}
-		@media (max-width: toEm(450)) {
+		@media (max-width: toEm(360)) {
+			object-position: 79% 0;
+		}
+		@media (max-width: toEm(320)) {
 			object-position: 78% 0;
-		}
-		@media (max-width: toEm(375)) {
-			object-position: 77% 0;
-		}
-		@media (max-width: toEm(325)) {
-			object-position: 75% 0;
 		}
 	}
 	&__container {
 	}
 	&__content {
 		@include adaptiveValue("padding-left", 56, 0);
-		padding-top: toRem(200);
+		padding-top: toRem(250);
 		padding-bottom: toRem(40);
 		z-index: 5;
 		max-width: toRem(475);
@@ -353,7 +362,7 @@ body {
 	&__title {
 		@include adaptiveValue("font-size", 55, 42);
 		font-weight: 500;
-		line-height: 1.2;
+		line-height: 1;
 		text-shadow:
 			1px 1px 2px rgba(0, 0, 0, 1),
 			2px 2px 6px rgba(0, 0, 0, 0.8),
@@ -380,7 +389,7 @@ body {
 			2px 2px 6px rgba(0, 0, 0, 0.8),
 			3px 3px 10px rgba(0, 0, 0, 0.6);
 		&:not(:last-child) {
-			@include adaptiveValue("margin-bottom", 50, 30);
+			@include adaptiveValue("margin-bottom", 40, 20);
 		}
 	}
 	&__button {

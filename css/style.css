@@ -628,30 +628,48 @@ body.menu-open {
 }
 @media (max-width: 33.125em) {
   .hero__background {
+    -o-object-position: 82% 0;
+       object-position: 82% 0;
+  }
+}
+@media (max-width: 30em) {
+  .hero__background {
+    -o-object-position: 79% 0;
+       object-position: 79% 0;
+  }
+}
+@media (max-width: 26.875em) {
+  .hero__background {
+    -o-object-position: 79% 0;
+       object-position: 79% 0;
+  }
+}
+@media (max-width: 25.875em) {
+  .hero__background {
+    -o-object-position: 79% 0;
+       object-position: 79% 0;
+  }
+}
+@media (max-width: 24.375em) {
+  .hero__background {
     -o-object-position: 80% 0;
        object-position: 80% 0;
   }
 }
-@media (max-width: 28.125em) {
+@media (max-width: 22.5em) {
+  .hero__background {
+    -o-object-position: 79% 0;
+       object-position: 79% 0;
+  }
+}
+@media (max-width: 20em) {
   .hero__background {
     -o-object-position: 78% 0;
        object-position: 78% 0;
   }
 }
-@media (max-width: 23.4375em) {
-  .hero__background {
-    -o-object-position: 77% 0;
-       object-position: 77% 0;
-  }
-}
-@media (max-width: 20.3125em) {
-  .hero__background {
-    -o-object-position: 75% 0;
-       object-position: 75% 0;
-  }
-}
 .hero__content {
-  padding-top: 12.5rem;
+  padding-top: 15.625rem;
   padding-bottom: 2.5rem;
   z-index: 5;
   max-width: 29.6875rem;
@@ -699,7 +717,7 @@ body.menu-open {
 }
 .hero__title {
   font-weight: 500;
-  line-height: 1.2;
+  line-height: 1;
   text-shadow: 1px 1px 2px rgb(0, 0, 0), 2px 2px 6px rgba(0, 0, 0, 0.8), 3px 3px 10px rgba(0, 0, 0, 0.6);
 }
 @media (min-width: 89.375em) {
@@ -763,24 +781,24 @@ body.menu-open {
 }
 @media (min-width: 89.375em) {
   .hero__text:not(:last-child) {
-    margin-bottom: 3.125rem;
+    margin-bottom: 2.5rem;
   }
 }
 @media (min-width: 20em) and (max-width: 89.375em) {
-  @supports (margin-bottom: clamp( 1.875rem , 1.5146396396rem  +  1.8018018018vw , 3.125rem )) {
+  @supports (margin-bottom: clamp( 1.25rem , 0.8896396396rem  +  1.8018018018vw , 2.5rem )) {
     .hero__text:not(:last-child) {
-      margin-bottom: clamp( 1.875rem , 1.5146396396rem  +  1.8018018018vw , 3.125rem );
+      margin-bottom: clamp( 1.25rem , 0.8896396396rem  +  1.8018018018vw , 2.5rem );
     }
   }
-  @supports not (margin-bottom: clamp( 1.875rem , 1.5146396396rem  +  1.8018018018vw , 3.125rem )) {
+  @supports not (margin-bottom: clamp( 1.25rem , 0.8896396396rem  +  1.8018018018vw , 2.5rem )) {
     .hero__text:not(:last-child) {
-      margin-bottom: calc(1.875rem + 1.25 * (100vw - 20rem) / 69.375);
+      margin-bottom: calc(1.25rem + 1.25 * (100vw - 20rem) / 69.375);
     }
   }
 }
 @media (max-width: 20em) {
   .hero__text:not(:last-child) {
-    margin-bottom: 1.875rem;
+    margin-bottom: 1.25rem;
   }
 }
 .hero__button {
