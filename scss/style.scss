@@ -290,15 +290,14 @@ body {
 
 .hero {
 	position: relative;
-	position: relative;
 	height: 90svh;
 	width: 100%;
 	overflow: hidden;
 
 	@media (max-width: toEm(767.98)) {
+		display: flex;
 		flex-direction: column;
 		justify-content: flex-end;
-		display: flex;
 	}
 	&__background {
 		position: absolute;
@@ -326,11 +325,12 @@ body {
 		}
 	}
 	&__container {
-		padding-top: toRem(180);
-		padding-bottom: toRem(20);
+		
 	}
 	&__content {
 		@include adaptiveValue("padding-left", 56, 0);
+		padding-top: toRem(200);
+		padding-bottom: toRem(48);
 		z-index: 5;
 		max-width: toRem(475);
 		@media (max-width: toEm(767.98)) {
@@ -340,7 +340,6 @@ body {
 			align-items: center;
 			justify-content: center;
 			text-align: center;
-
 		}
 	}
 	&__title {
@@ -349,7 +348,6 @@ body {
 		line-height: 1.2;
 
 		@media (max-width: toEm(767.98)) {
-
 		}
 		span {
 			background: linear-gradient(270deg, #bef4f9 0%, #9bdbf0 6%, #68b6e4 76.5%, #327bb5 97.5%);

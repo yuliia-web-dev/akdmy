@@ -572,13 +572,15 @@ body.menu-open {
 
 .hero {
   position: relative;
-  position: relative;
   height: 90svh;
   width: 100%;
   overflow: hidden;
 }
 @media (max-width: 47.99875em) {
   .hero {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
@@ -586,9 +588,6 @@ body.menu-open {
     -webkit-box-pack: end;
         -ms-flex-pack: end;
             justify-content: flex-end;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
   }
 }
 .hero__background {
@@ -633,11 +632,9 @@ body.menu-open {
        object-position: 75% 0;
   }
 }
-.hero__container {
-  padding-top: 11.25rem;
-  padding-bottom: 1.25rem;
-}
 .hero__content {
+  padding-top: 12.5rem;
+  padding-bottom: 3rem;
   z-index: 5;
   max-width: 29.6875rem;
 }
