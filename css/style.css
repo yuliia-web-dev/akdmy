@@ -644,7 +644,7 @@ body.menu-open {
   padding-top: 15.625rem;
   padding-bottom: 2.5rem;
   z-index: 5;
-  max-width: 31.25rem;
+  max-width: 34.375rem;
 }
 @media (min-width: 89.375em) {
   .hero__content {
@@ -695,18 +695,18 @@ body.menu-open {
 }
 @media (min-width: 89.375em) {
   .hero__title {
-    font-size: 3.75rem;
+    font-size: 4.375rem;
   }
 }
 @media (min-width: 20em) and (max-width: 89.375em) {
-  @supports (font-size: clamp( 3rem , 2.7837837838rem  +  1.0810810811vw , 3.75rem )) {
+  @supports (font-size: clamp( 3rem , 2.6036036036rem  +  1.981981982vw , 4.375rem )) {
     .hero__title {
-      font-size: clamp( 3rem , 2.7837837838rem  +  1.0810810811vw , 3.75rem );
+      font-size: clamp( 3rem , 2.6036036036rem  +  1.981981982vw , 4.375rem );
     }
   }
-  @supports not (font-size: clamp( 3rem , 2.7837837838rem  +  1.0810810811vw , 3.75rem )) {
+  @supports not (font-size: clamp( 3rem , 2.6036036036rem  +  1.981981982vw , 4.375rem )) {
     .hero__title {
-      font-size: calc(3rem + 0.75 * (100vw - 20rem) / 69.375);
+      font-size: calc(3rem + 1.375 * (100vw - 20rem) / 69.375);
     }
   }
 }

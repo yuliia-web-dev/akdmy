@@ -337,7 +337,7 @@ body {
 		padding-top: toRem(250);
 		padding-bottom: toRem(40);
 		z-index: 5;
-		max-width: toRem(500);
+		max-width: toRem(550);
 		@media (max-width: toEm(767.98)) {
 			max-width: 100%;
 			display: flex;
@@ -348,7 +348,7 @@ body {
 		}
 	}
 	&__title {
-		@include adaptiveValue("font-size", 60, 48);
+		@include adaptiveValue("font-size", 70, 48);
 		line-height:1.2;
 		text-transform: uppercase;
 		font-family: "Anton";

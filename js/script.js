@@ -101,13 +101,13 @@ document.addEventListener("DOMContentLoaded", function () {
 document.addEventListener("DOMContentLoaded", () => {
 	const elements = document.querySelectorAll('.hero__title, .hero__text, .hero__button');
 
-	if (!elements.length) return; // перевірка на наявність
+	if (!elements.length) return; 
 
 	const observer = new IntersectionObserver((entries) => {
 		entries.forEach(entry => {
 			if (entry.isIntersecting) {
 				entry.target.classList.add('visible');
-				observer.unobserve(entry.target); // одноразова анімація
+				observer.unobserve(entry.target); 
 			}
 		});
 	}, {
@@ -149,24 +149,5 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
-//===============onscroll animation============
 
-const observeElements = (selectors, options = { threshold: 0.5, unobserve: true }) => {
-	const elements = document.querySelectorAll(selectors);
-
-	if (!elements.length) return;
-
-	const observer = new IntersectionObserver((entries, observer) => {
-		entries.forEach(entry => {
-			if (entry.isIntersecting) {
-				entry.target.classList.add('visible');
-				if (options.unobserve) observer.unobserve(entry.target);
-			}
-		});
-	}, options);
-
-	elements.forEach(el => observer.observe(el));
-};
-
-observeElements('.counter__item, .features__title');
 
