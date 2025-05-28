@@ -292,7 +292,6 @@ body {
 	position: relative;
 	height: 90svh;
 	min-height: 600px;
-
 	width: 100%;
 	overflow: hidden;
 
@@ -310,7 +309,7 @@ body {
 		object-fit: cover;
 		object-position: 100% 10%;
 		z-index: -1;
-		@media (max-width: toEm(1055)) {
+		@media (max-width: toEm(1115)) {
 			object-position: 50% 0;
 		}
 		@media (max-width: toEm(900)) {
@@ -323,26 +322,13 @@ body {
 			object-position: 83% 0;
 		}
 		@media (max-width: toEm(530)) {
-			object-position: 82% 0;
-		}
-		@media (max-width: toEm(480)) {
-			object-position: 79% 0;
-		}
-		@media (max-width: toEm(430)) {
-			object-position: 79% 0;
-		}
-		@media (max-width: toEm(414)) {
-			object-position: 79% 0;
-		}
-		@media (max-width: toEm(390)) {
 			object-position: 80% 0;
 		}
+	
 		@media (max-width: toEm(360)) {
 			object-position: 79% 0;
 		}
-		@media (max-width: toEm(320)) {
-			object-position: 79% 0;
-		}
+	
 	}
 	&__container {
 	}
@@ -351,7 +337,7 @@ body {
 		padding-top: toRem(250);
 		padding-bottom: toRem(40);
 		z-index: 5;
-		max-width: toRem(475);
+		max-width: toRem(500);
 		@media (max-width: toEm(767.98)) {
 			max-width: 100%;
 			display: flex;
@@ -362,9 +348,10 @@ body {
 		}
 	}
 	&__title {
-		@include adaptiveValue("font-size", 55, 42);
-		font-weight: 500;
-		line-height: 1;
+		@include adaptiveValue("font-size", 60, 48);
+		line-height:1.2;
+		text-transform: uppercase;
+		font-family: "Anton";
 		text-shadow:
 			1px 1px 2px rgba(0, 0, 0, 1),
 			2px 2px 6px rgba(0, 0, 0, 0.8),
@@ -572,10 +559,12 @@ body {
 	&__title {
 		max-width: toRem(505);
 		text-align: left;
-		@include adaptiveValue("font-size", 55, 30);
-		font-weight: 600;
 		line-height: 1.2;
 		color: #fff;
+		@include adaptiveValue("font-size", 60, 45);
+		line-height:1.2;
+		text-transform: uppercase;
+		font-family: "Anton";
 		&:not(:last-child) {
 			margin-bottom: toRem(30);
 		}

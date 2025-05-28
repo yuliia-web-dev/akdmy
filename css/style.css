@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css?family=Roboto:regular,500,600,700&display=swap");
 @import url("https://fonts.googleapis.com/css?family=Inter:regular,700&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Anton:regular&display=swap");
 @font-face {
   font-family: "icons";
   src: url("../fonts/icons.woff2") format("woff2"), url("../fonts/icons.woff") format("woff");
@@ -603,7 +604,7 @@ body.menu-open {
      object-position: 100% 10%;
   z-index: -1;
 }
-@media (max-width: 65.9375em) {
+@media (max-width: 69.6875em) {
   .hero__background {
     -o-object-position: 50% 0;
        object-position: 50% 0;
@@ -629,30 +630,6 @@ body.menu-open {
 }
 @media (max-width: 33.125em) {
   .hero__background {
-    -o-object-position: 82% 0;
-       object-position: 82% 0;
-  }
-}
-@media (max-width: 30em) {
-  .hero__background {
-    -o-object-position: 79% 0;
-       object-position: 79% 0;
-  }
-}
-@media (max-width: 26.875em) {
-  .hero__background {
-    -o-object-position: 79% 0;
-       object-position: 79% 0;
-  }
-}
-@media (max-width: 25.875em) {
-  .hero__background {
-    -o-object-position: 79% 0;
-       object-position: 79% 0;
-  }
-}
-@media (max-width: 24.375em) {
-  .hero__background {
     -o-object-position: 80% 0;
        object-position: 80% 0;
   }
@@ -663,17 +640,11 @@ body.menu-open {
        object-position: 79% 0;
   }
 }
-@media (max-width: 20em) {
-  .hero__background {
-    -o-object-position: 79% 0;
-       object-position: 79% 0;
-  }
-}
 .hero__content {
   padding-top: 15.625rem;
   padding-bottom: 2.5rem;
   z-index: 5;
-  max-width: 29.6875rem;
+  max-width: 31.25rem;
 }
 @media (min-width: 89.375em) {
   .hero__content {
@@ -717,30 +688,31 @@ body.menu-open {
   }
 }
 .hero__title {
-  font-weight: 500;
-  line-height: 1;
+  line-height: 1.2;
+  text-transform: uppercase;
+  font-family: "Anton";
   text-shadow: 1px 1px 2px rgb(0, 0, 0), 2px 2px 6px rgba(0, 0, 0, 0.8), 3px 3px 10px rgba(0, 0, 0, 0.6);
 }
 @media (min-width: 89.375em) {
   .hero__title {
-    font-size: 3.4375rem;
+    font-size: 3.75rem;
   }
 }
 @media (min-width: 20em) and (max-width: 89.375em) {
-  @supports (font-size: clamp( 2.625rem , 2.3907657658rem  +  1.1711711712vw , 3.4375rem )) {
+  @supports (font-size: clamp( 3rem , 2.7837837838rem  +  1.0810810811vw , 3.75rem )) {
     .hero__title {
-      font-size: clamp( 2.625rem , 2.3907657658rem  +  1.1711711712vw , 3.4375rem );
+      font-size: clamp( 3rem , 2.7837837838rem  +  1.0810810811vw , 3.75rem );
     }
   }
-  @supports not (font-size: clamp( 2.625rem , 2.3907657658rem  +  1.1711711712vw , 3.4375rem )) {
+  @supports not (font-size: clamp( 3rem , 2.7837837838rem  +  1.0810810811vw , 3.75rem )) {
     .hero__title {
-      font-size: calc(2.625rem + 0.8125 * (100vw - 20rem) / 69.375);
+      font-size: calc(3rem + 0.75 * (100vw - 20rem) / 69.375);
     }
   }
 }
 @media (max-width: 20em) {
   .hero__title {
-    font-size: 2.625rem;
+    font-size: 3rem;
   }
 }
 .hero__title span {
@@ -1026,30 +998,32 @@ body.menu-open {
 .features__title {
   max-width: 31.5625rem;
   text-align: left;
-  font-weight: 600;
   line-height: 1.2;
   color: #fff;
+  line-height: 1.2;
+  text-transform: uppercase;
+  font-family: "Anton";
 }
 @media (min-width: 89.375em) {
   .features__title {
-    font-size: 3.4375rem;
+    font-size: 3.75rem;
   }
 }
 @media (min-width: 20em) and (max-width: 89.375em) {
-  @supports (font-size: clamp( 1.875rem , 1.4245495495rem  +  2.2522522523vw , 3.4375rem )) {
+  @supports (font-size: clamp( 2.8125rem , 2.5422297297rem  +  1.3513513514vw , 3.75rem )) {
     .features__title {
-      font-size: clamp( 1.875rem , 1.4245495495rem  +  2.2522522523vw , 3.4375rem );
+      font-size: clamp( 2.8125rem , 2.5422297297rem  +  1.3513513514vw , 3.75rem );
     }
   }
-  @supports not (font-size: clamp( 1.875rem , 1.4245495495rem  +  2.2522522523vw , 3.4375rem )) {
+  @supports not (font-size: clamp( 2.8125rem , 2.5422297297rem  +  1.3513513514vw , 3.75rem )) {
     .features__title {
-      font-size: calc(1.875rem + 1.5625 * (100vw - 20rem) / 69.375);
+      font-size: calc(2.8125rem + 0.9375 * (100vw - 20rem) / 69.375);
     }
   }
 }
 @media (max-width: 20em) {
   .features__title {
-    font-size: 1.875rem;
+    font-size: 2.8125rem;
   }
 }
 .features__title:not(:last-child) {
