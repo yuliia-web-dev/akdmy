@@ -101,13 +101,13 @@ document.addEventListener("DOMContentLoaded", function () {
 document.addEventListener("DOMContentLoaded", () => {
 	const elements = document.querySelectorAll('.hero__title, .hero__text, .hero__button');
 
-	if (!elements.length) return; 
+	if (!elements.length) return;
 
 	const observer = new IntersectionObserver((entries) => {
 		entries.forEach(entry => {
 			if (entry.isIntersecting) {
 				entry.target.classList.add('visible');
-				observer.unobserve(entry.target); 
+				observer.unobserve(entry.target);
 			}
 		});
 	}, {
