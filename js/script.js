@@ -183,27 +183,4 @@ window.addEventListener('DOMContentLoaded', () => {
  
 });
 
-window.addEventListener('DOMContentLoaded', () => {
-	const client = contentful.createClient({
-		space: 'pw19h87cnohd',
-		accessToken: 't7Ub5RgzRLiH8H7-i4XhXBxvkM6vKZEYH0KAYEeW4uM'
-	});
 
-	client.getEntries({ content_type: 'heroSection' })
-		.then((response) => {
-			const item = response.items[0];
-			console.log('Item:', item); // 👀 перевір у консолі
-
-			const bgImageEl = document.getElementById('hero-background');
-			if (
-				bgImageEl &&
-				item?.fields?.backgroundImage?.fields?.file?.url
-			) {
-				const imageUrl = item.fields.backgroundImage.fields.file.url;
-				bgImageEl.src = 'https:' + imageUrl;
-			} else {
-				console.error('❌ Зображення не знайдено або не опубліковане');
-			}
-		})
-		.catch((error) => console.error('Contentful error:', error));
-});
