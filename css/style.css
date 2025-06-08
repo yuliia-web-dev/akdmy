@@ -273,6 +273,9 @@ body.menu-open {
 }
 .header__button {
   text-align: center;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -297,6 +300,20 @@ body.menu-open {
           flex: 1;
 }
 
+@media (max-width: 30em) {
+  .menu__body {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+}
 @media (max-width: 50em) {
   .menu__body {
     position: fixed;
@@ -716,14 +733,6 @@ body.menu-open {
     font-size: 3rem;
   }
 }
-.hero__title span {
-  background: -webkit-gradient(linear, right top, left top, from(#bef4f9), color-stop(6%, #9bdbf0), color-stop(76.5%, #68b6e4), color-stop(97.5%, #327bb5));
-  background: linear-gradient(270deg, #bef4f9 0%, #9bdbf0 6%, #68b6e4 76.5%, #327bb5 97.5%);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  text-shadow: none;
-}
 @media (min-width: 89.375em) {
   .hero__title:not(:last-child) {
     margin-bottom: 1.875rem;
@@ -781,10 +790,14 @@ body.menu-open {
   width: fit-content;
   font-size: 24px;
 }
-@media (max-width: 30em) {
-  .hero__button {
-    width: 100%;
-  }
+
+.highlighted {
+  background: -webkit-gradient(linear, right top, left top, from(#bef4f9), color-stop(6%, #9bdbf0), color-stop(76.5%, #68b6e4), color-stop(97.5%, #327bb5));
+  background: linear-gradient(270deg, #bef4f9 0%, #9bdbf0 6%, #68b6e4 76.5%, #327bb5 97.5%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: none;
 }
 
 .about {
@@ -857,11 +870,6 @@ body.menu-open {
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
-}
-@media (max-width: 30em) {
-  .about__button {
-    width: 100%;
-  }
 }
 
 .item-counter {

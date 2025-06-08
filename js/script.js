@@ -148,6 +148,62 @@ document.addEventListener("DOMContentLoaded", function () {
 	}
 });
 
+window.addEventListener('DOMContentLoaded', () => {
+	const client = contentful.createClient({
+		space: 'pw19h87cnohd',
+		accessToken: 't7Ub5RgzRLiH8H7-i4XhXBxvkM6vKZEYH0KAYEeW4uM'
+	});
 
+	client.getEntries({ content_type: 'heroSection' })
+		.then((response) => {
+			const item = response.items[0];
+			if (item && item.fields) {
+				const titleEl = document.getElementById('hero-title');
+				const subtitleEl = document.getElementById('hero-subtitle');
+				const buttonEl = document.getElementById('hero-button');
+				const bgImageEl = document.getElementById('hero-background');
 
+				if (titleEl) {
+					const part1 = item.fields.titleBefore || '';
+					const part2 = item.fields.titleHighlight || '';
+					titleEl.innerHTML = `${part1} <span class="highlighted">${part2}</span>`;
+				}
 
+				if (subtitleEl) subtitleEl.textContent = item.fields.subtitle;
+				if (buttonEl) buttonEl.textContent = item.fields.buttonText;
+
+				// 👇 Картинка з Contentful
+				if (bgImageEl && item.fields.backgroundImage) {
+					const imageUrl = item.fields.backgroundImage.fields.file.url;
+					bgImageEl.src = 'https:' + imageUrl;
+				}
+			}
+		})
+		.catch((error) => console.error('Contentful error:', error));
+ 
+});
+
+window.addEventListener('DOMContentLoaded', () => {
+	const client = contentful.createClient({
+		space: 'pw19h87cnohd',
+		accessToken: 't7Ub5RgzRLiH8H7-i4XhXBxvkM6vKZEYH0KAYEeW4uM'
+	});
+
+	client.getEntries({ content_type: 'heroSection' })
+		.then((response) => {
+			const item = response.items[0];
+			console.log('Item:', item); // 👀 перевір у консолі
+
+			const bgImageEl = document.getElementById('hero-background');
+			if (
+				bgImageEl &&
+				item?.fields?.backgroundImage?.fields?.file?.url
+			) {
+				const imageUrl = item.fields.backgroundImage.fields.file.url;
+				bgImageEl.src = 'https:' + imageUrl;
+			} else {
+				console.error('❌ Зображення не знайдено або не опубліковане');
+			}
+		})
+		.catch((error) => console.error('Contentful error:', error));
+});

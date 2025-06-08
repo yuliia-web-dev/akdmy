@@ -88,6 +88,7 @@ body {
 
 	&__button {
 		text-align: center;
+		width: fit-content;
 		display: flex;
 		align-items: center;
 		justify-content: center;
@@ -108,6 +109,11 @@ body {
 	// .menu__body
 
 	&__body {
+		@media (max-width: toEm(480)) {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+		}
 		@media (max-width: toEm(800)) {
 			position: fixed;
 			width: 100%;
@@ -357,13 +363,7 @@ body {
 			2px 2px 6px rgba(0, 0, 0, 0.8),
 			3px 3px 10px rgba(0, 0, 0, 0.6);
 
-		span {
-			background: linear-gradient(270deg, #bef4f9 0%, #9bdbf0 6%, #68b6e4 76.5%, #327bb5 97.5%);
-			background-clip: text;
-			-webkit-background-clip: text;
-			-webkit-text-fill-color: transparent;
-			text-shadow: none;
-		}
+
 		&:not(:last-child) {
 			@include adaptiveValue("margin-bottom", 30, 15);
 		}
@@ -384,13 +384,15 @@ body {
 	&__button {
 		width: fit-content;
 		font-size: 24px;
-
-		@media (max-width: toEm(480)) {
-			width: 100%;
-		}
 	}
 }
-
+.highlighted {
+	background: linear-gradient(270deg, #bef4f9 0%, #9bdbf0 6%, #68b6e4 76.5%, #327bb5 97.5%);
+	background-clip: text;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	text-shadow: none;
+}
 //=======================ABOUT===============
 .about {
 	padding-top: toRem(143);
@@ -445,9 +447,6 @@ body {
 		justify-self: center;
 		text-align: center;
 		width: fit-content;
-		@media (max-width: toEm(480)) {
-			width: 100%;
-		}
 	}
 }
 .counter {
@@ -826,7 +825,7 @@ body {
 		display: grid;
 		place-items: center;
 		gap: toRem(20);
-		text-align: center
+		text-align: center;
 	}
 
 	// .privacy__title
@@ -883,7 +882,6 @@ body {
 		align-items: center;
 		gap: toRem(10);
 		margin-bottom: toRem(20);
-
 	}
 
 	// .privacy-data__wrapper
@@ -918,15 +916,15 @@ body {
 
 	&__list {
 		font-size: toRem(18);
-		li{
+		li {
 			padding-left: toRem(20);
 			position: relative;
-			&::before{
+			&::before {
 				content: "";
 				width: toRem(8);
 				height: toRem(8);
 				background-color: #fff;
-				
+
 				position: absolute;
 				top: 5px;
 				left: 0;
@@ -946,3 +944,4 @@ body {
 		font-size: toRem(18);
 	}
 }
+

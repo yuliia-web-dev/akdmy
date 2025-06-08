@@ -4,9 +4,17 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="description" content="Project">
+	<meta name="description" content="AKDMY">
+	<meta http-equiv="Content-Security-Policy" content="default-src 'self';
+	    script-src 'self' 'unsafe-inline' https://img1.wsimg.com;
+	    connect-src 'self' https://cdn.contentful.com https://preview.contentful.com https://csp.secureserver.net;
+	    font-src 'self' https://fonts.gstatic.com;
+	    style-src 'self' https://fonts.googleapis.com; img-src 'self' https:;">
+
+
 	<link rel="stylesheet" href="css/style.css">
 	<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+
 	<title>AKDMY</title>
 </head>
 
@@ -46,17 +54,22 @@
 		<main class="page">
 			<section class="hero" id="home">
 				<div class="hero__container">
-					<img src="img/hero-bg.png" alt="Hero Background" class="hero__background" />
+					<img id="hero-background" class="hero__background" alt="Hero Background">
+
 
 					<div class="hero__content">
-						<h1 class="hero__title">Helping Kids
-							Become <span>Winners</span></h1>
-						<div class="hero__text">AKDMY is transforming the future of young athletes.
+						<h1 class="hero__title" id="hero-title">
+							Helping Kids Become <span class="highlighted">Winners</span> </h1>
+
+						<div class="hero__text" id="hero-subtitle">AKDMY is transforming the future of young athletes.
 							Kids stay engaged, Parents see real results.</div>
-						<a href="#" class="hero__button button">Join AKDMY</a>
+						<a href="https://form.typeform.com/to/tenxbdp6" target="_blank" class="hero__button button">
+							Join AKDMY
+						</a>
+
+
 					</div>
 
-				</div>
 			</section>
 			<div class="about" id="about">
 				<div class="about__container">
@@ -84,7 +97,9 @@
 						</div>
 					</div>
 					<p class="about__text">the only game designed to help kids win</p>
-					<a href="#" class="about__button button">Join AKDMY</a>
+					<a href="https://form.typeform.com/to/tenxbdp6" target="_blank" class="about__button button">
+						Join AKDMY
+					</a>
 				</div>
 
 			</div>
@@ -113,11 +128,7 @@
 					</div>
 				</div>
 			</section>
-			<iframe src="https://form.typeform.com/to/OzfSlX05" style="width: 100%; height: 100vh; border: none; overflow: hidden;"
-				scrolling="no" allow="camera; microphone; autoplay; encrypted-media;">
-			</iframe>
-					 
-			<script src="https://embed.typeform.com/next/embed.js"></script>
+
 		</main>
 		<footer class="footer">
 			<div class="footer__container">
@@ -142,6 +153,9 @@
 				</div>
 			</div>
 		</footer>
+
+		<script src="js/contentful.browser.min.js"></script>
+
 		<script src="js/script.js"></script>
 	</div>
 </body>
