@@ -148,34 +148,57 @@ document.addEventListener("DOMContentLoaded", function () {
 	}
 });
 
-const spaceId = 'pw19h87cnohd';
-const accessToken = 't7Ub5RgzRLiH8H7-i4XhXBxvkM6vKZEYH0KAYEeW4uM';
-const environmentId = 'master'; 
-const contentType = 'heroSection';
+window.addEventListener('DOMContentLoaded', () => {
+	const client = contentful.createClient({
+		space: 'pw19h87cnohd',
+		accessToken: 't7Ub5RgzRLiH8H7-i4XhXBxvkM6vKZEYH0KAYEeW4uM'
+	});
 
-async function fetchHeroData() {
-	try {
-		const res = await fetch(`https://cdn.contentful.com/spaces/${spaceId}/environments/${environmentId}/entries?access_token=${accessToken}&content_type=${contentType}&include=1`);
-		const data = await res.json();
+	client.getEntries({ content_type: 'heroSection' })
+		.then((response) => {
+			const item = response.items[0];
+			const assets = response.includes?.Asset || [];
 
-		const item = data.items[0];
-		const assetId = item.fields.backgroundImage.sys.id;
-		const asset = data.includes.Asset.find(asset => asset.sys.id === assetId);
+			if (item && item.fields) {
+				const titleEl = document.getElementById('hero-title');
+				const subtitleEl = document.getElementById('hero-subtitle');
+				const buttonEl = document.getElementById('hero-button');
+				const bgImageEl = document.getElementById('hero-background');
 
-		// Текстові поля
-		document.getElementById('hero-title').innerHTML =
-			`${item.fields.titleBefore} <span class="highlighted">${item.fields.titleHighlight}</span>`;
+				if (titleEl) {
+					const part1 = item.fields.titleBefore || '';
+					const part2 = item.fields.titleHighlight || '';
+					titleEl.innerHTML = `${part1} <span class="highlighted">${part2}</span>`;
+				}
 
-		document.getElementById('hero-subtitle').textContent = item.fields.subtitle;
-		document.querySelector('.hero__button').textContent = item.fields.buttonText;
+				if (subtitleEl) subtitleEl.textContent = item.fields.subtitle;
+				if (buttonEl) buttonEl.textContent = item.fields.buttonText;
 
-		// Зображення
-		const imageUrl = asset.fields.file.url.startsWith('//') ? 'https:' + asset.fields.file.url : asset.fields.file.url;
-		document.getElementById('hero-background').src = imageUrl;
+				if (bgImageEl && item.fields.backgroundImage?.sys?.id) {
+					const assetId = item.fields.backgroundImage.sys.id;
+					const asset = assets.find(a => a.sys.id === assetId);
 
-	} catch (error) {
-		console.error('Contentful fetch error:', error);
-	}
-}
+					if (asset && asset.fields?.file?.url) {
+						// Початково приховуємо картинку
+						bgImageEl.style.opacity = '0';
+						bgImageEl.style.transition = 'opacity 0.5s';
+						bgImageEl.style.visibility = 'hidden';
 
-fetchHeroData();
+						// Попередньо завантажуємо картинку через Image()
+						const tempImg = new Image();
+
+						tempImg.onload = () => {
+							// Коли картинка завантажилась, ставимо src у DOM і показуємо
+							bgImageEl.src = tempImg.src;
+							bgImageEl.style.visibility = 'visible';
+							bgImageEl.style.opacity = '1';
+						};
+
+						tempImg.src = 'https:' + asset.fields.file.url;
+					}
+				}
+			}
+		})
+		.catch((error) => console.error('Contentful error:', error));
+});
+

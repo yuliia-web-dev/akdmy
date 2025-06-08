@@ -3,10 +3,12 @@
 
 <head>
 	<meta charset="UTF-8">
-	<meta http-equiv="Content-Security-Policy"
-		content="default-src 'self'; script-src 'self' 'unsafe-inline' https://img1.wsimg.com; connect-src 'self' https://cdn.contentful.com https://preview.contentful.com https://csp.secureserver.net; font-src 'self' https://fonts.gstatic.com; style-src 'self' https://fonts.googleapis.com; img-src 'self' https:;">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="description" content="AKDMY">
+	<meta http-equiv="Content-Security-Policy"
+		content="default-src 'self'; connect-src 'self' https://cdn.contentful.com https://preview.contentful.com https://csp.secureserver.net; script-src 'self' 'unsafe-inline' https://img1.wsimg.com; font-src 'self' https://fonts.gstatic.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' https: data:;">
+
+
 
 	<link rel="stylesheet" href="css/style.css">
 	<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
@@ -51,15 +53,16 @@
 			<section class="hero" id="home">
 				<div class="hero__container">
 					<img id="hero-background" class="hero__background" alt="Hero Background">
-
-
+				
+					
 					<div class="hero__content">
 						<h1 class="hero__title" id="hero-title">
 							Helping Kids Become <span class="highlighted">Winners</span> </h1>
 
 						<div class="hero__text" id="hero-subtitle">AKDMY is transforming the future of young athletes.
 							Kids stay engaged, Parents see real results.</div>
-						<a href="https://form.typeform.com/to/tenxbdp6" target="_blank" class="hero__button button">
+						<a id="hero-button" href="https://form.typeform.com/to/tenxbdp6" target="_blank"
+							class="hero__button button">
 							Join AKDMY
 						</a>
 
@@ -154,6 +157,7 @@
 
 		<script src="js/script.js"></script>
 	</div>
+
 </body>
 
 </html>
