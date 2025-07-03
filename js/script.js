@@ -147,35 +147,77 @@ document.addEventListener("DOMContentLoaded", function () {
 		observer.observe(elementsToObserve[j]);
 	}
 });
-
 const spaceId = 'pw19h87cnohd';
 const accessToken = 't7Ub5RgzRLiH8H7-i4XhXBxvkM6vKZEYH0KAYEeW4uM';
-const environmentId = 'master'; 
-const contentType = 'heroSection';
+const environmentId = 'master';
 
+// --- Функція для Hero Section ---
 async function fetchHeroData() {
 	try {
-		const res = await fetch(`https://cdn.contentful.com/spaces/${spaceId}/environments/${environmentId}/entries?access_token=${accessToken}&content_type=${contentType}&include=1`);
+		const res = await fetch(`https://cdn.contentful.com/spaces/${spaceId}/environments/${environmentId}/entries?access_token=${accessToken}&content_type=heroSection`);
 		const data = await res.json();
 
 		const item = data.items[0];
 		const assetId = item.fields.backgroundImage.sys.id;
-		const asset = data.includes.Asset.find(asset => asset.sys.id === assetId);
+		const asset = data.includes.Asset.find(a => a.sys.id === assetId);
+		const imageUrl = asset.fields.file.url.startsWith('//') ? 'https:' + asset.fields.file.url : asset.fields.file.url;
 
-		// Текстові поля
-		document.getElementById('hero-title').innerHTML =
-			`${item.fields.titleBefore} <span class="highlighted">${item.fields.titleHighlight}</span>`;
-
+		document.getElementById('hero-title').innerHTML = `${item.fields.titleBefore} <span class="highlighted">${item.fields.titleHighlight}</span>`;
 		document.getElementById('hero-subtitle').textContent = item.fields.subtitle;
 		document.querySelector('.hero__button').textContent = item.fields.buttonText;
-
-		// Зображення
-		const imageUrl = asset.fields.file.url.startsWith('//') ? 'https:' + asset.fields.file.url : asset.fields.file.url;
 		document.getElementById('hero-background').src = imageUrl;
 
 	} catch (error) {
-		console.error('Contentful fetch error:', error);
+		console.error('Contentful fetch error (Hero):', error);
 	}
 }
 
+// --- Проста функція для рендеру Rich Text (для Privacy) ---
+function renderRichText(node) {
+	if (!node) return '';
+	const { nodeType, content, value } = node;
+	switch (nodeType) {
+		case 'document': return content.map(renderRichText).join('');
+		case 'paragraph': return `<p>${content.map(renderRichText).join('')}</p>`;
+		case 'heading-3': return `<h3>${content.map(renderRichText).join('')}</h3>`;
+		case 'unordered-list': return `<ul>${content.map(renderRichText).join('')}</ul>`;
+		case 'ordered-list': return `<ol>${content.map(renderRichText).join('')}</ol>`;
+		case 'list-item': return `<li>${content.map(renderRichText).join('')}</li>`;
+		case 'text': return value.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+		default: return '';
+	}
+}
+
+// --- Функція для Privacy Policy ---
+async function fetchPrivacyData() {
+	try {
+		const res = await fetch(`https://cdn.contentful.com/spaces/${spaceId}/environments/${environmentId}/entries?access_token=${accessToken}&content_type=privacySection`);
+		const data = await res.json();
+
+		const wrapper = document.querySelector('.privacy-data__wrapper');
+		wrapper.innerHTML = '';
+
+		data.items.forEach((item, index) => {
+			const title = item.fields.sectionTitle || '';
+			const richText = item.fields.sectionContent;
+
+			const contentHtml = renderRichText(richText);
+
+			const sectionHtml = `
+        <div class="privacy-data__item item-privacy">
+          <h3 class="item-privacy__title subtitle">${index + 1}. ${title}</h3>
+          <div class="item-privacy__text">${contentHtml}</div>
+        </div>
+      `;
+
+			wrapper.insertAdjacentHTML('beforeend', sectionHtml);
+		});
+	} catch (error) {
+		console.error('Contentful fetch error (Privacy):', error);
+	}
+}
+
+// Викликаємо обидві функції
 fetchHeroData();
+fetchPrivacyData();
+
