@@ -180,7 +180,7 @@ async function fetchHeroData() {
 
 fetchHeroData();
 
-async function fetchPrivacySections() {
+async function fetchPrivacySimple() {
 	try {
 		const res = await fetch(`https://cdn.contentful.com/spaces/${spaceId}/environments/${environmentId}/entries?access_token=${accessToken}&content_type=privacySection`);
 		const data = await res.json();
@@ -188,33 +188,47 @@ async function fetchPrivacySections() {
 		const wrapper = document.querySelector('.privacy-data__wrapper');
 		wrapper.innerHTML = '';
 
-		data.items.forEach((item) => {
-			const title = item.fields.sectionTitle || '';
-			const listItems = item.fields.listItems || [];
-			const paragraph = item.fields.paragraph || '';
+		const rawText = data.items[0].fields.privacyContent || '';
 
-			let contentHtml = '';
+		// Розділяємо пункти за номером (наприклад, "1.", "2." тощо)
+		const sections = rawText.split(/\n\d+\.\s/).filter(Boolean);
 
-			if (listItems.length > 0) {
-				contentHtml = `<ul class="item-privacy__list">` +
-					listItems.map(li => `<li>${li}</li>`).join('') +
-					`</ul>`;
-			} else if (paragraph) {
-				contentHtml = `<div class="item-privacy__text"><p>${paragraph}</p></div>`;
+		sections.forEach((sectionText, index) => {
+			// Відновлюємо номер, бо split його видалив
+			const titleMatch = sectionText.match(/^([^\n:]+):?/);
+			const title = titleMatch ? titleMatch[1] : `Section ${index + 1}`;
+
+			// Відокремлюємо тіло тексту без заголовка
+			const contentText = sectionText.replace(titleMatch[0], '').trim();
+
+			// Замінюємо рядки, які починаються з "-", на список
+			let contentHtml = contentText
+				.split('\n')
+				.map(line => line.trim())
+				.map(line => {
+					if (line.startsWith('-')) return `<li>${line.substring(1).trim()}</li>`;
+					else return `<p>${line}</p>`;
+				}).join('');
+
+			// Якщо є хоча б один <li>, обгортаємо в <ul>
+			if (contentHtml.includes('<li>')) {
+				contentHtml = `<ul>${contentHtml}</ul>`;
 			}
 
 			const sectionHtml = `
 			<div class="privacy-data__item item-privacy">
-			  <h3 class="item-privacy__title subtitle">${title}</h3>
-			  ${contentHtml}
+			  <h3 class="item-privacy__title subtitle">${index + 1}. ${title}</h3>
+			  <div class="item-privacy__text">${contentHtml}</div>
 			</div>
 		 `;
 
 			wrapper.insertAdjacentHTML('beforeend', sectionHtml);
 		});
+
 	} catch (error) {
-		console.error('Contentful fetch error:', error);
+		console.error('Contentful fetch error (simple):', error);
 	}
 }
 
-fetchPrivacySections();
+fetchPrivacySimple();
+ 
